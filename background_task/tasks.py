@@ -310,7 +310,7 @@ def autodiscover():
 
     for app in settings.INSTALLED_APPS:
         try:
-            app_path = import_module(app).__path__
+            app_path = list(import_module(app).__path__)
         except (AttributeError, ImportError):
             continue
         try:
